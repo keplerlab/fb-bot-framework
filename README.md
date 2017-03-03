@@ -1,4 +1,4 @@
-# Application Name - "facebook-bot-framework"
+# Application Name - "fb-bot-framework"
 
 A quick chat bot framework for "Facebook Messenger Platform". This framework will allows you to quickly setup your bot on your local machine with minimal configurations and quick start. 
 
