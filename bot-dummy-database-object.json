@@ -1,0 +1,358 @@
+{
+	"questions": [{
+		"response": "Hi <user>, I am Restaurant Bot. How can I help you today?",
+		"key": "welcome_greeting",
+		"tType": "text",
+		"options": []
+	}, {
+		"response": "Please select an option to start with.",
+		"key": "select_menu",
+		"tType": "optionList",
+		"options": [{
+			"id": "see_menu",
+			"name": "See Menu"
+		}, {
+			"id": "make_reservation",
+			"name": "Make a Reservation"
+		}, {
+			"id": "order_takeout",
+			"name": "Order Takeout"
+		}]
+	}, {
+		"response": "Menu items option is under construction. Kindly choose make reservation.",
+		"key": "see_menu",
+		"tType": "text",
+		"options": []
+	}, {
+		"response": "Where would you like to make your reservation? Please select.",
+		"tType": "carouselList",
+		"key": "select_restaurant",
+		"options": [
+
+			{
+				"title": "Restaurant 1",
+				"image_url": "http://images.locanto.in/1204006438/Food-Tourism-in-India-for-Mouth-Watering-Dishes-around-Places_7.jpg",
+				"subtitle": "Corner of the jeevan bharti building, 11:00 AM - 6:00 PM (Daily)",
+				"buttons": [{
+					"type": "postback",
+					"payload": "restaurant_1",
+					"title": "Select Restaurant"
+				}]
+			}, {
+				"title": "Restaurant 2",
+				"image_url": "http://im.hunt.in/cg/hoshangabad/City-Guide/Roya.jpg",
+				"subtitle": "Building 6, Phase 3 GGN. 9:00 AM - 11:00 PM (Daily)",
+				"buttons": [{
+					"type": "postback",
+					"payload": "restaurant_2",
+					"title": "Select Restaurant"
+				}]
+			}, {
+				"title": "Restaurant 3",
+				"image_url": "http://www.worldblaze.in/wp-content/uploads/2016/06/restaurant-326x190.jpg",
+				"subtitle": "Microsoft, Phase 3. 9:00 AM - 11:00 PM (Daily)",
+				"buttons": [{
+					"type": "postback",
+					"payload": "restaurant_3",
+					"title": "Select Restaurant"
+				}]
+			}
+		]
+	}, {
+		"response": "How many people?",
+		"key": "no_of_people",
+		"tType": "text",
+		"options": []
+	}, {
+		"response": "Enter the Day and time to make the reservation, in this format (Sunday 6 pm)",
+		"tType": "text",
+		"key": "day_and_time",
+		"options": []
+	}, {
+		"response": "Reservation length?",
+		"tType": "optionList",
+		"key": "reservation_length",
+		"options": [{
+			"id": "30_min",
+			"name": "30 Min"
+		}, {
+			"id": "60_min",
+			"name": "60 Min"
+		}, {
+			"id": "90_min",
+			"name": "90 Min"
+		}]
+	}, {
+		"response": "Special Request?",
+		"tType": "optionList",
+		"key": "special_request",
+		"options": [{
+			"id": "general_dining",
+			"name": "General Dining"
+		}, {
+			"id": "romatic_dinner",
+			"name": "Romatic Dinner"
+		}, {
+			"id": "private_party",
+			"name": "Private Party"
+		}]
+	}, {
+		"response": "Confirm Order",
+		"tType": "carouselList",
+		"key": "confirmation",
+		"options": [{
+			"title": "Confirmation",
+			"subtitle": "Your reservation is requested for <restaurant>, <day>",
+			"buttons": [{
+				"type": "postback",
+				"payload": "confirm_reservation",
+				"title": "Confirm"
+			}, {
+				"type": "postback",
+				"payload": "cancel_reservation",
+				"title": "Cancel"
+			}]
+		}]
+	}, {
+		"response": "This is a receipt of this order!",
+		"tType": "receipt",
+		"key": "receipt",
+		"details": [{
+			"title": "Order Confirmation",
+			"image_url": "",
+			"subtitle": "Your reservation is booked for <restaurant>, <day>"
+		}]
+	}, {
+		"response": "How was your experience?",
+		"tType": "optionList",
+		"key": "feedback",
+		"options": [{
+			"id": "one_star",
+			"name": "1 Star"
+		}, {
+			"id": "three_star",
+			"name": "3 Star"
+		}, {
+			"id": "five_star",
+			"name": "5 Star"
+		}]
+	}, {
+		"response": "Please share your comments.",
+		"tType": "text",
+		"key": "comments",
+		"options": []
+	}, {
+		"key": "thanks_greeting",
+		"response": "Thanks for feedback & comment. See you again :)",
+		"tType": "text",
+		"options": []
+	}, {
+		"key": "cancel_greeting",
+		"response": "Order cancelled. See you again.",
+		"tType": "text",
+		"options": []
+	}, {
+		"response": "Ok, how would you like to choose?",
+		"key": "meal_options",
+		"tType": "optionList",
+		"options": [{
+			"id": "by_favourite",
+			"name": "My Favourites"
+		}, {
+			"id": "by_cousine",
+			"name": "By Cuisine"
+		}]
+	}, {
+		"response": "What are you looking for?",
+		"tType": "optionList",
+		"key": "cousine_type",
+		"options": [{
+			"id": "pizza",
+			"name": "Pizza"
+		}, {
+			"id": "burger",
+			"name": "Burger"
+		}, {
+			"id": "sub",
+			"name": "Sub"
+		}]
+	}, {
+		"response": "Great, would you like to pre-order your food for pick-up?",
+		"key": "pre_order",
+		"tType": "optionList",
+		"options": [{
+			"id": "my_favourite_order",
+			"name": "My Favourites"
+		}, {
+			"id": "my_custom_order",
+			"name": "Custom"
+		}]
+	}, {
+		"response": "Please select your meal.",
+		"tType": "carouselList",
+		"key": "select_meal",
+		"options": [{
+			"title": "Chef Special",
+			"image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/vKcCAF9zqLtsYw9UYJMtiQ/ls.jpg",
+			"subtitle": "Chef special burger",
+			"buttons": [{
+				"type": "postback",
+				"payload": "meal_1",
+				"title": "Select Meal"
+			}]
+		}, {
+			"title": "Chicken Special",
+			"image_url": "http://cdn1.tmbi.com/TOH/Images/Photos/37/300x300/exps42242_CW1444966D17B.jpg",
+			"subtitle": "Special chicken burger",
+			"buttons": [{
+				"type": "postback",
+				"payload": "meal_2",
+				"title": "Select Meal"
+			}]
+		}, {
+			"title": "Veg Sub",
+			"image_url": "http://s3-media2.fl.yelpcdn.com/bphoto/6m_eQm5RCmLq9BXjhZCxgg/180s.jpg",
+			"subtitle": "Special veg sub",
+			"buttons": [{
+				"type": "postback",
+				"payload": "meal_3",
+				"title": "Select Meal"
+			}]
+		}, {
+			"title": "Non-veg Sub",
+			"image_url": "http://s3-media1.fl.yelpcdn.com/bphoto/nBLu9EtbOWYX2j9wfqZNtw/348s.jpg",
+			"subtitle": "Special non-veg sub",
+			"buttons": [{
+				"type": "postback",
+				"payload": "meal_4",
+				"title": "Select Meal"
+			}]
+		}, {
+			"title": "Cheese Pizza",
+			"image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/SdhDRU28-S14322l4-Tk5g/ls.jpg",
+			"subtitle": "Special cheese pizza",
+			"buttons": [{
+				"type": "postback",
+				"payload": "meal_5",
+				"title": "Select Meal"
+			}]
+		}, {
+			"title": "Chicken Pizza",
+			"image_url": "http://s3-media2.fl.yelpcdn.com/bphoto/NKkKD33aHQKYoOUfh0CJEA/348s.jpg",
+			"subtitle": "Special chicken pizza",
+			"buttons": [{
+				"type": "postback",
+				"payload": "meal_6",
+				"title": "Select Meal"
+			}]
+		}]
+	}, {
+		"response": "Any Drinks or Other items?",
+		"tType": "optionList",
+		"key": "other_items",
+		"options": [{
+			"id": "drinks",
+			"name": "Drinks"
+		}, {
+			"id": "fries",
+			"name": "Fries"
+		}, {
+			"id": "no_thanks",
+			"name": "No Thanks"
+		}]
+	}, {
+		"response": "Select your drink?",
+		"tType": "optionList",
+		"key": "drinks",
+		"options": [{
+			"id": "beer",
+			"name": "Beer"
+		}, {
+			"id": "wine",
+			"name": "Wine"
+		}, {
+			"id": "soft_drink",
+			"name": "Soft Drink"
+		}]
+	}, {
+		"response": "Select your fries?",
+		"tType": "optionList",
+		"key": "fries",
+		"options": [{
+			"id": "thick_cut",
+			"name": "Thick Cut"
+		}, {
+			"id": "house_cut",
+			"name": "House Cut"
+		}, {
+			"id": "twice_fried",
+			"name": "Twice Fried"
+		}]
+	}, {
+		"response": "Confirm Order",
+		"tType": "carouselList",
+		"key": "confirmation_order",
+		"options": [{
+			"title": "Confirmation",
+			"subtitle": "You have requested for <meal> from <restaurant>.",
+			"buttons": [{
+				"type": "postback",
+				"payload": "confirm_order",
+				"title": "Confirm"
+			}, {
+				"type": "postback",
+				"payload": "cancel_order",
+				"title": "Cancel"
+			}]
+		}]
+	}, {
+		"response": "This is a receipt of this order!",
+		"tType": "receipt",
+		"key": "receipt_order",
+		"details": [{
+			"title": "Order Confirmation",
+			"image_url": "",
+			"subtitle": "Your order has been placed for <meal> at <restaurant>."
+		}]
+	}, {
+		"response": "Where would you like to make your reservation? Please select.",
+		"tType": "carouselList",
+		"key": "select_restaurant_cousine",
+		"options": [{
+			"title": "Restaurant 1",
+			"image_url": "http://images.locanto.in/1204006438/Food-Tourism-in-India-for-Mouth-Watering-Dishes-around-Places_7.jpg",
+			"subtitle": "Corner of the jeevan bharti building, 11:00 AM - 6:00 PM (Daily)",
+			"buttons": [{
+				"type": "postback",
+				"payload": "restaurant_cousine_1",
+				"title": "Select Restaurant"
+			}]
+		}, {
+			"title": "Restaurant 2",
+			"image_url": "http://im.hunt.in/cg/hoshangabad/City-Guide/Roya.jpg",
+			"subtitle": "Building 6, Phase 3 GGN. 9:00 AM - 11:00 PM (Daily)",
+			"buttons": [{
+				"type": "postback",
+				"payload": "restaurant_cousine_2",
+				"title": "Select Restaurant"
+			}]
+		}, {
+			"title": "Restaurant 3",
+			"image_url": "http://www.worldblaze.in/wp-content/uploads/2016/06/restaurant-326x190.jpg",
+			"subtitle": "Microsoft, Phase 3. 9:00 AM - 11:00 PM (Daily)",
+			"buttons": [{
+				"type": "postback",
+				"payload": "restaurant_cousine_3",
+				"title": "Select Restaurant"
+			}]
+		}]
+
+	}, {
+		"response": "We estimate a 5 min walk and your order will be ready soon. Just message open when you arrive.",
+		"tType": "text",
+		"key": "estimation",
+		"options": []
+
+	}],
+	"chatData": []
+}
