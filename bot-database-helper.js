@@ -2,11 +2,14 @@
 var CONFIG = require('./bot-config');
 var firebaseAdmin = require("firebase-admin");
 
-//Initialize firebase 
-firebaseAdmin.initializeApp({
-  credential: firebaseAdmin.credential.cert(CONFIG.firebase.serviceAccount),
-  databaseURL: CONFIG.firebase.databaseURL
-});
+//only if database is enabled 
+if(CONFIG.isFirebaseDB){
+	//Initialize firebase 
+	firebaseAdmin.initializeApp({
+	  credential: firebaseAdmin.credential.cert(CONFIG.firebase.serviceAccount),
+	  databaseURL: CONFIG.firebase.databaseURL
+	});
+}
 
 module.exports = {
   //load questions from firebase
