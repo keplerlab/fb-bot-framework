@@ -20,9 +20,9 @@ var Promise = require('promise');
 //update SSL certificate 
 function setSSL(fs) {
     CONFIG.ssl = {
-        key: fs.readFileSync('/etc/letsencrypt/live/keplervaani.com/privkey.pem'),
-        cert: fs.readFileSync('/etc/letsencrypt/live/keplervaani.com/cert.pem'),
-        ca: fs.readFileSync('/etc/letsencrypt/live/keplervaani.com/chain.pem')
+        key: fs.readFileSync('/privkey.pem'),
+        cert: fs.readFileSync('/cert.pem'),
+        ca: fs.readFileSync('/chain.pem')
     }
 }
 
