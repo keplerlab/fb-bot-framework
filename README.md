@@ -27,6 +27,9 @@
   - [Server Configuration](#server-configuration)
   - [Server](#server)
   - [Response Handler](#response-handler)
+    - [Handle Auto Replies](#handle-auto-replies)
+    - [Handle Message Type](#handle-message-type)
+    - [Handle Application Flow](#handle-application-flow)
   - [Template Manager](#template-manager)
   - [Database Helper](#database-helper)
   - [User Session](#user-session)
@@ -182,18 +185,199 @@ Messenger
 
 ### Package JSON File
 
+Package JSON file is used to define all the required dependancies and dev-dependancies, if any. Make sure that all these modules should be available before running your node server.  
 
+```shell
+{
+  "name": "botdemo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "express": "^4.13.4",
+    "firebase": "^3.6.10",
+    "firebase-admin": "^4.1.1",
+    "fs": "0.0.2",
+    "http": "0.0.0",
+    "https": "^1.0.0",
+    "jsonfile": "^2.3.1",
+    "node-wit": "1.0.0",
+    "promise": "^7.1.1",
+    "request": "^2.72.0",
+    "serve-static": "^1.10.2",
+    "underscore": "latest",
+    "wit-js": "0.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
+```
 ### Server Configuration
 
+The configuration file contains all the api keys and access tokens including `WIT`, `Facebook`, `Firebase` and other services. You need to set following key items in your configuration file. 
+accessToken
+witToken
+port
+
+```shell
+{    
+    accessToken: "<Your Facebook Token>", //Get your token from facebook app page
+
+    witToken: "<Your WIT Token>", //get your token from WIT API
+
+    port: 8080, //Set port for ngrok tunnel 
+
+    ssl: { //This need to be enabled for production use 
+        key: "",
+        cert: "",
+        ca: ""
+    },
+
+    isFirebaseDB : false, //Default value is set to false (No data will be save to Firebase, till the value is true) 
+
+    verifyToken: "botdemo", //it can any string you want, but should match to facebook webhook token 
+
+    listenPort: 443, //set your node server port 
+
+    //Set default messages 
+    defaultAuthMsg: "User not authorized, kindly try again with different credentials.",
+    defaultQueryMsg: "Will be glad to help you. Kindly write to us keplerlab@sapient.com",
+    
+    //firebase API token, get it from Firebase application 
+    firebase : {
+        apiKey: "<Your firebase api key>",
+        authDomain: "<Domain name>",
+        databaseURL: "<Database url>",
+        storageBucket: "<Storage key>",
+        messagingSenderId: "<Sender id>",
+        serviceAccount : {
+
+        } //Firebase private key
+    },
+
+    //chatbot key mapping (Mapping between user response and next questions to ask from end user) 
+    keyMapped: {
+        "make_reservation": "select_restaurant",
+        "select_restaurant": "no_of_people",
+        "no_of_people": "day_and_time",
+        "day_and_time": "reservation_length",
+    }
+}
+```  
 
 ### Server
 
+`server.js` file is the main file, which runs immediately whenever you execute `npm start` or `node server` or `node server.js`. Below are the responsibilities of this node server. 
+
+* Loads all the node server project dependancies 
+* Pre-load all set of trained questions from JSON file or real-time database (Firebase), depends on your framework configurations
+* Responsible to handle all user requests received through Facebook `webhooks`
+* Get user profile information from `Facebook` API if user is new to chatbot 
+* Create node server instance on specified system port as configured by developer.
+
 
 ### Response Handler
+Response handler is a helper file, which handles most important work flow of the application framework. Below are the roles and responsibilities of this helper file.  
 
+#### Handle Auto Replies
+
+`autoReply` function is responsible to prepare quick auto reply template with upcoming question. It takes three patameters `text` as message which received, `userObj` as user session object and `responseList` as an array of pre-trained question list to ask.  
+
+```shell
+  autoReply: function(text, userObj, responseList) {
+    ...
+  }
+```
+
+#### Handle Message Type
+
+There are many types of messages `Facebook API` provides, which includes response type such as `messages` and `messages_postback`. 
+
+* `Messages` : Messages are normal text messages respond by facebook api
+* `Messages Postback` : These are postback messages. When you provide option list to end user, for ex: your chatbot asked end user to select any of the option from the list. Here `postback_1` and `postback_2` will receive as message to your server.
+
+```shell
+[{
+    "type": "postback",
+    "title": "Option 1",
+    "payload": "option_1"
+},{
+    "type": "postback",
+    "title": "Option 2",
+    "payload": "option_2"
+}]
+````    
+
+#### Handle Application Flow
+
+This handler also takes care of preparing next question for user upon response from previous question. And fetch restaurant and meal details from user session object. Below function requires these parameters to decide next operation of application flow
+* `responseList` - List of pre-trained data or questions
+* `userObj` - User session object
+* `mappedkey` - Key of next questions to ask 
+* `key` - Current question key   
+* `answer` - Answer to be provided    
+
+```shell
+    sendNextQuestion: function(responseList, userObj, mappedkey, key,answer) {
+      ...
+    }
+```
 
 ### Template Manager
 
+Template manager is resposible to handle all kinds of `Facebook Messanger Platform` driven templates. Many of these templates are already covered in template manager. Have a look at the list below. Other new templates will integrate over time.      
+
+* Normal text template - Ex :- (Hi)
+* Option list template - Ex :- (Colors : ["Option 1", "Option 2"])
+* Receipt template - Ex:- (You order has been confirmed details including any picture and other highligted text)
+* Generic template
+* Caraousel template - Ex :- (Burgers : [{name:"Pizza burger",image:'pizza.jpg'},{name:"Cheese burger",image:'cheese.jpg'}])
+* Quick reply template - Ex :- (Colors : ["Red", "Green","Blue"])
+
+All you have to call the right template and send the right data in right format. Here is preview of template manager file:
+
+```shell
+{
+    getTmplOptionList: function(data) {
+        var tmpl,
+            list = [];
+
+        for (var i = 0; i < data.options.length; i++) {
+            var _obj = {
+                "type": "postback",
+                "title": data.options[i].name,
+                "payload": data.options[i].id
+            };
+
+            list.push(_obj);
+        }
+
+        tmpl = {
+            "attachment": {
+                "type": "template",
+                "payload": {
+                    "template_type": "button",
+                    "text": data.response,
+                    "buttons": list
+                }
+            }
+        };
+        return tmpl;
+    }
+}
+```
+
+Here is an example to call your specific template with below data :
+
+```shell
+let data = [{id : 1,name:"Pizza burger",image:'pizza.jpg'},{id : 2,name:"Cheese burger",image:'cheese.jpg'}]
+getTmplOptionList(data);
+``` 
 
 ### Database Helper
 
