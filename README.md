@@ -38,6 +38,14 @@
 - [Reaching Out](#reaching-out)
 - [Disclaimer](#disclaimer)
 
+## Prerequisite 
+
+* Facebook Page
+* Facebook Application ID
+* Node server should pre-installed globally on your computer 
+* WIT account API
+* Firebase account API
+
 ## Features
 
 - Inbuilt template manager as per facebook messenger platform 
@@ -47,14 +55,6 @@
 - Node driven environment 
 - JSON loader to accept content from dummy JSON file or database 
 - Session handling (respond to multiple request at the same time)
-
-## Prerequisite 
-
-* Facebook Page
-* Facebook Application ID
-* Node server should pre-installed globally on your computer 
-* WIT account API
-* Firebase account API
 
 ## Installation
 
