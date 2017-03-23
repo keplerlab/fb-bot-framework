@@ -37,7 +37,7 @@
   - [User Session](#user-session)
   - [WIT Default Intents](#wit-default-intents)
   - [Firebase Default Database](#firebase-default-database)
-- [UnSubscribe Your Chatbot](#unsubscribe-your-chatbot)
+- [Unsubscribe Your Chatbot](#unsubscribe-your-chatbot)
 - [Known Issues](#known-issues)
 - [Reaching Out](#reaching-out)
 - [Disclaimer](#disclaimer)
@@ -52,9 +52,9 @@
 
 ## Features
 
-- Inbuilt template manager as per facebook messenger platform 
+- Inbuilt template manager as per Facebook messenger platform 
 - Configuration driven including database and NLP settings and different APIs
-- Response handler, which handles all kinds of request i.e text,payload,attachment and geo-locations sent by Facebbok API
+- Response handler, which handles all kinds of request i.e text, payload, attachment and geo-locations sent by Facebook API
 - Service layer to handle application logic and integration with chatbot service
 - Node driven environment 
 - JSON loader to accept content from dummy JSON file or database 
@@ -69,7 +69,7 @@ Kindly follow below steps thoroughly and install all mandatory softwares and nod
 We need to download and install some quick software before dig & dive into source code  
 
 * Create Facebook page - https://www.facebook.com/pages/create/
-* Create Facebook developer account -	https://developers.facebook.com/quickstarts/?platform=web
+* Create Facebook developer account -   https://developers.facebook.com/quickstarts/?platform=web
 * Node Server installed - https://nodejs.org/en/download/
 * Ngrok server installed - https://ngrok.com/download
 * Create WIT account - https://wit.ai/
@@ -92,7 +92,7 @@ In facebook terminology we have just setup facebook SDK, which can be used for m
 * Pass your captcha information, if system ask 
 
 #### Node Server
-You also need to setup a node server on your localhost, which is responsible to handle and respond all the client/user requests. This  server will act as a webhook or callback handler to Facebook API.  
+You also need to setup a node server on your localhost, which is responsible to handle and respond all the client/user requests. This server will act as a webhook or callback handler to Facebook API.  
 * Download Node JS - https://nodejs.org/en/ and follow all steps to install node server on machine 
 * Go to Github and download/clone messenger framework from github - https://github.com/keplerlab/fb-bot-framework 
 * Go to synced/downloaded folder
@@ -103,12 +103,12 @@ You also need to setup a node server on your localhost, which is responsible to 
 You also need to setup a secure tunnel to your localhost server. Ngrok is a tool that allows you to easily expose your localhost server to the outside world. Make sure your firewall won’t block this.  
 * Download ngrok - https://ngrok.com/download, extract your setup and go inside the folder 
 * Open command prompt and run `ngrok http 8080`, this will create one random https tunnel for you and you don’t require any online hosting to test your application.
-* Copy randomly generated https url to Facebook webhook page, once your app is ready (Later Step)
-* As per below screen, it is : https://8efe40b4.ngrok.io/
+* Copy randomly generated https URL to Facebook webhook page, once your app is ready (Later Step)
+* As per below screen, it is https://8efe40b4.ngrok.io/
 
 #### WIT API 
 Wit.ai makes it easy for developers to build applications and devices that you can talk or text to. It helps you to process natural languages.
-* Go to WIT.AI  https://wit.ai/ 
+* Go to WIT.AI https://wit.ai/ 
 * Create your developer account using Github or Facebook, else login 
 * Click on      icon on top right panel, and enter your app name `botDemo`
 * Click on `Import your app from a backup` before create app button (To save our time, we have dummy stories ready for Restaurant application)
@@ -116,8 +116,8 @@ Wit.ai makes it easy for developers to build applications and devices that you c
 
 #### Google Firebase
 Firebase will be leverage as database for this chatbot. This database will save user chat history and questions that a bot will ask to end user.
-* Go to Firebase https://firebase.google.com/ and create your account
-* If you already have valid G-mail id, you can directly create your developer account on Firebase Console https://console.firebase.google.com 
+* Go to Firebase https://firebase.google.com/ and create your account
+* If you already have valid G-mail id, you can directly create your developer account on Firebase Console https://console.firebase.google.com 
 * Click on `Create new project` and enter your `Database name` and select Country
 
 ### Platform Packages
@@ -169,7 +169,7 @@ Messenger
 * Paste it to your source code configuration file, named as `bot-config.js` with key name `witToken`.
 
 ### Configure Firebase
-* Go to https://console.firebase.google.com/  and select your application, Click on "Add Firebase to your web app"
+* Go to https://console.firebase.google.com/ and select your application, Click on "Add Firebase to your web app"
 * Copy your config properties object and paste in to framework config file, name as `bot-config.js` file
 * Now, click on settings icon on the left and select "project settings"
 * Select "Service accounts" tab, Click on "Generate new private key" 
@@ -182,7 +182,6 @@ Messenger
 * Or you can Click on your Facebook page `message` button and start your conversation, but as a third person. 
 
 ## Source Code Overview
-
 
 ### Package JSON File
 
@@ -272,12 +271,11 @@ The configuration file contains all the api keys and access tokens including `WI
 
 `server.js` file is the main file, which runs immediately whenever you execute `npm start` or `node server` or `node server.js` Below are the responsibilities of this node server. 
 
-* Loads all the node server project dependancies 
+* Loads all the node server project dependencies 
 * Pre-load all set of trained questions from JSON file or real-time database (Firebase), depends on your framework configurations
 * Responsible to handle all user requests received through Facebook `webhooks`
 * Get user profile information from `Facebook` API if user is new to chatbot 
 * Create node server instance on specified system port as configured by developer.
-
 
 ### Response Handler
 Response handler is a helper file, which handles most important work flow of the application framework. Below are the roles and responsibilities of this helper file.  
@@ -296,8 +294,8 @@ Response handler is a helper file, which handles most important work flow of the
 
 There are many types of messages `Facebook API` provides, which includes response type such as `messages` and `messages_postback`. 
 
-* `Messages` : Messages are normal text messages respond by facebook api
-* `Messages Postback` : These are postback messages. When you provide option list to end user, for ex: your chatbot asked end user to select any of the option from the list. Here `postback_1` and `postback_2` will receive as message to your server.
+* `Messages`: Messages are normal text messages respond by Facebook API
+* `Messages Postback`: These are postback messages. When you provide option list to end user, for ex: your chatbot asked end user to select any of the option from the list. Here `postback_1` and `postback_2` will receive as message to your server.
 
 ```shell
 [{
@@ -331,11 +329,11 @@ This handler also takes care of preparing next question for user upon response f
 Template manager is responsible to handle all kinds of `Facebook Messanger Platform` driven templates. Many of these templates are already covered in template manager. Have a look at the list below. Other new templates will integrate over time.      
 
 * Normal text template - Ex :- (Hi)
-* Option list template - Ex :- (Colors : ["Option 1", "Option 2"])
-* Receipt template - Ex:- (You order has been confirmed details including any picture and other highligted text)
+* Option list template - Ex :- (Colors: ["Option 1", "Option 2"])
+* Receipt template - Ex: - (You order has been confirmed details including any picture and other highligted text)
 * Generic template
-* Caraousel template - Ex :- (Burgers : [{name:"Pizza burger",image:'pizza.jpg'},{name:"Cheese burger",image:'cheese.jpg'}])
-* Quick reply template - Ex :- (Colors : ["Red", "Green","Blue"])
+* Caraousel template - Ex :- (Burgers: [{name:"Pizza burger",image:'pizza.jpg'},{name:"Cheese burger",image:'cheese.jpg'}])
+* Quick reply template - Ex :- (Colors: ["Red", "Green","Blue"])
 
 All you have to call the right template and send the right data in right format. Here is preview of template manager file:
 
@@ -370,7 +368,7 @@ All you have to call the right template and send the right data in right format.
 }
 ```
 
-Here is an example to call your specific template with below data :
+Here is an example to call your specific template with below data:
 
 ```shell
 let data = [{id : 1,name:"Pizza burger",image:'pizza.jpg'},{id : 2,name:"Cheese burger",image:'cheese.jpg'}]
@@ -422,7 +420,7 @@ User session object is designed to manage user session and retain user action hi
 
 ### WIT Default Intents
 
-This framework have a default NLP engine data, in our case it's `WIT` data. Which contains all the `entities`, which further contains `intents`, `actions`,`expressions` and their `stories`. For ex:- 
+This framework have a default NLP engine data, in our case its `WIT` data. Which contains all the `entities`, which further contains `intents`, `actions`,`expressions` and their `stories`. For ex:- 
 
 ```shell
 Story - Intent
@@ -431,7 +429,7 @@ SapientNitro - sapient
 Sapient Razorfish - sapient 
 ```
 
-Note : Every NLP engine have their own algorithm or ways to train their system. In case of `WIT`, they rely on story based mechanism. For more information checkout https://wit.ai/       
+Note: Every NLP engine have their own algorithm or ways to train their system. In case of `WIT`, they rely on story based mechanism. For more information checkout https://wit.ai/       
 
 ### Firebase Default Database
 
@@ -442,31 +440,31 @@ This framework provides one dummy JSON object, which can be used to quickly impo
 
 ```shell
 {
-	"questions": [{
-		"response": "Hi <user>, I am Restaurant Bot. How can I help you today?",
-		"key": "welcome_greeting",
-		"tType": "text",
-		"options": []
-	}, {
-		"response": "Please select an option to start with.",
-		"key": "select_menu",
-		"tType": "optionList",
-		"options": [{
-			"id": "see_menu",
-			"name": "See Menu"
-		}, {
-			"id": "make_reservation",
-			"name": "Make a Reservation"
-		}, {
-			"id": "order_takeout",
-			"name": "Order Takeout"
-		}]
-	}],
-	"chatData": []
+    "questions": [{
+        "response": "Hi <user>, I am Restaurant Bot. How can I help you today?",
+        "key": "welcome_greeting",
+        "tType": "text",
+        "options": []
+    }, {
+        "response": "Please select an option to start with.",
+        "key": "select_menu",
+        "tType": "optionList",
+        "options": [{
+            "id": "see_menu",
+            "name": "See Menu"
+        }, {
+            "id": "make_reservation",
+            "name": "Make a Reservation"
+        }, {
+            "id": "order_takeout",
+            "name": "Order Takeout"
+        }]
+    }],
+    "chatData": []
 }
 ```
 
-## UnSubscribe Your Chatbot
+## Unsubscribe Your Chatbot
 To unsubscribe your page immediately, just go to the application page and unsubsribe your page under messenger tab and webhook section.   
 
 ## Known Issues
