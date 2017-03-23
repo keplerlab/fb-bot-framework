@@ -221,9 +221,6 @@ Package JSON file is used to define all the required dependancies and dev-depend
 ### Server Configuration
 
 The configuration file contains all the api keys and access tokens including `WIT`, `Facebook`, `Firebase` and other services. You need to set following key items in your configuration file. 
-accessToken
-witToken
-port
 
 ```shell
 {    
@@ -273,7 +270,7 @@ port
 
 ### Server
 
-`server.js` file is the main file, which runs immediately whenever you execute `npm start` or `node server` or `node server.js`. Below are the responsibilities of this node server. 
+`server.js` file is the main file, which runs immediately whenever you execute `npm start` or `node server` or `node server.js` Below are the responsibilities of this node server. 
 
 * Loads all the node server project dependancies 
 * Pre-load all set of trained questions from JSON file or real-time database (Firebase), depends on your framework configurations
@@ -331,7 +328,7 @@ This handler also takes care of preparing next question for user upon response f
 
 ### Template Manager
 
-Template manager is resposible to handle all kinds of `Facebook Messanger Platform` driven templates. Many of these templates are already covered in template manager. Have a look at the list below. Other new templates will integrate over time.      
+Template manager is responsible to handle all kinds of `Facebook Messanger Platform` driven templates. Many of these templates are already covered in template manager. Have a look at the list below. Other new templates will integrate over time.      
 
 * Normal text template - Ex :- (Hi)
 * Option list template - Ex :- (Colors : ["Option 1", "Option 2"])
@@ -395,7 +392,7 @@ This is how we fetch the data from firebase database. First create an intance fr
 
 #### Update data to Firebase
 
-This is how we first look for the object key which we want to update, if this object key doesn't exist then it's get added to list. `.update()` method will update the table or selected object key data, whatever data you passed to it.    
+This is how we first look for the object key which we want to update, if this object key doesn't exist then it's get added to list. `.update()` method will update the table or selected object key data, whatever data you have passed to it.    
 
 ```shell 
     var newPostKey = firebaseAdmin.database().ref().child('chatData').push().key; //get children object from table
@@ -434,13 +431,13 @@ SapientNitro - sapient
 Sapient Razorfish - sapient 
 ```
 
-Note : Every NLP engine have their own algorithm or ways to train your system. In case of `WIT`, they rely on story based mechanism. For more information checkout https://wit.ai/       
+Note : Every NLP engine have their own algorithm or ways to train their system. In case of `WIT`, they rely on story based mechanism. For more information checkout https://wit.ai/       
 
 ### Firebase Default Database
 
-This framework provides one dummy JSON object, which can be used to quickly import it to your database or Firebase database. This object contains mainly two mandatory objects.
+This framework provides one dummy JSON object, which can be used to quickly import it to your Firebase database. This object contains mainly two mandatory objects.
 
-* `questions` - List of set of questions to ask to end user.  
+* `questions` - List of set of questions to ask from end user.  
 * `chatData` - User chat history to save to database. 
 
 ```shell
