@@ -1,0 +1,9 @@
+{
+  "version" : 20160513,
+  "zip-command" : "zip restaurantbot.zip restaurantbot/app.json restaurantbot/entities/*.json restaurantbot/actions.json restaurantbot/stories.json restaurantbot/expressions.json",
+  "data" : {
+    "name" : "restaurantbot",
+    "description" : "Restaurent POC BOT",
+    "lang" : "en"
+  }
+}

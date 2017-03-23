@@ -1,0 +1,244 @@
+{
+  "data" : [
+    {
+      "name" : "",
+      "turns" : [
+        {
+          "user" : "Make a Reservation",
+          "entities" : [
+            {
+              "entity" : "intent",
+              "value" : "\"make_reservation\""
+            }
+          ],
+          "operations" : [ ]
+        }
+      ]
+    },
+    {
+      "name" : "",
+      "turns" : [
+        {
+          "user" : "Select Restaurant",
+          "entities" : [
+            {
+              "entity" : "intent",
+              "value" : "\"select_restaurant\""
+            }
+          ],
+          "operations" : [ ]
+        }
+      ]
+    },
+    {
+      "name" : "",
+      "turns" : [
+        {
+          "user" : "No of people",
+          "entities" : [
+            {
+              "entity" : "intent",
+              "value" : "\"no_of_people\""
+            }
+          ],
+          "operations" : [ ]
+        }
+      ]
+    },
+    {
+      "name" : "",
+      "turns" : [
+        {
+          "user" : "Day and Time",
+          "entities" : [
+            {
+              "entity" : "intent",
+              "value" : "\"day_and_time\""
+            }
+          ],
+          "operations" : [ ]
+        }
+      ]
+    },
+    {
+      "name" : "",
+      "turns" : [
+        {
+          "user" : "Reservation Length",
+          "entities" : [
+            {
+              "entity" : "intent",
+              "value" : "\"reservation_length\""
+            }
+          ],
+          "operations" : [ ]
+        }
+      ]
+    },
+    {
+      "name" : "",
+      "turns" : [
+        {
+          "user" : "Special Request",
+          "entities" : [
+            {
+              "entity" : "intent",
+              "value" : "\"special_request\""
+            }
+          ],
+          "operations" : [ ]
+        }
+      ]
+    },
+    {
+      "name" : "",
+      "turns" : [
+        {
+          "user" : "Confirmation",
+          "entities" : [
+            {
+              "entity" : "intent",
+              "value" : "\"confirmation\""
+            }
+          ],
+          "operations" : [ ]
+        }
+      ]
+    },
+    {
+      "name" : "",
+      "turns" : [
+        {
+          "user" : "Receipt",
+          "entities" : [
+            {
+              "entity" : "intent",
+              "value" : "\"receipt\""
+            }
+          ],
+          "operations" : [ ]
+        }
+      ]
+    },
+    {
+      "name" : "",
+      "turns" : [
+        {
+          "user" : "Feedback",
+          "entities" : [
+            {
+              "entity" : "intent",
+              "value" : "\"feedback\""
+            }
+          ],
+          "operations" : [ ]
+        }
+      ]
+    },
+    {
+      "name" : "",
+      "turns" : [
+        {
+          "user" : "Cancel",
+          "entities" : [
+            {
+              "entity" : "intent",
+              "value" : "\"cancel_greeting\""
+            }
+          ],
+          "operations" : [ ]
+        }
+      ]
+    },
+    {
+      "name" : "",
+      "turns" : [
+        {
+          "user" : "Thanks",
+          "entities" : [
+            {
+              "entity" : "intent",
+              "value" : "\"thanks_greeting\""
+            }
+          ],
+          "operations" : [ ]
+        }
+      ]
+    },
+    {
+      "name" : "",
+      "turns" : [
+        {
+          "user" : "hi",
+          "entities" : [
+            {
+              "entity" : "intent",
+              "value" : "\"welcome_greeting\""
+            }
+          ],
+          "operations" : [ ]
+        }
+      ]
+    },
+    {
+      "name" : "",
+      "turns" : [
+        {
+          "user" : "hello ",
+          "entities" : [
+            {
+              "entity" : "intent",
+              "value" : "\"welcome_greeting\""
+            }
+          ],
+          "operations" : [ ]
+        }
+      ]
+    },
+    {
+      "name" : "",
+      "turns" : [
+        {
+          "user" : "hello bot",
+          "entities" : [
+            {
+              "entity" : "intent",
+              "value" : "\"welcome_greeting\""
+            }
+          ],
+          "operations" : [ ]
+        }
+      ]
+    },
+    {
+      "name" : "",
+      "turns" : [
+        {
+          "user" : "hi bot",
+          "entities" : [
+            {
+              "entity" : "intent",
+              "value" : "\"welcome_greeting\""
+            }
+          ],
+          "operations" : [ ]
+        }
+      ]
+    },
+    {
+      "name" : "",
+      "turns" : [
+        {
+          "user" : "Comments",
+          "entities" : [
+            {
+              "entity" : "intent",
+              "value" : "\"comments\""
+            }
+          ],
+          "operations" : [ ]
+        }
+      ]
+    }
+  ]
+}

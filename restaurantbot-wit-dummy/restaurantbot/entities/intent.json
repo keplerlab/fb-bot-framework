@@ -1,0 +1,77 @@
+{
+  "data" : {
+    "lookups" : [
+      "keywords",
+      "trait"
+    ],
+    "name" : "intent",
+    "lang" : "en",
+    "exotic" : false,
+    "id" : "intent",
+    "values" : [
+      {
+        "value" : "cancel_greeting"
+      },
+      {
+        "value" : "comments"
+      },
+      {
+        "value" : "confirmation",
+        "expressions" : [
+          "Confirmation"
+        ]
+      },
+      {
+        "value" : "day_and_time",
+        "expressions" : [
+          "Day",
+          "Day and Time"
+        ]
+      },
+      {
+        "value" : "feedback"
+      },
+      {
+        "value" : "greetings"
+      },
+      {
+        "value" : "make_a_reservation"
+      },
+      {
+        "value" : "make_reservation",
+        "expressions" : [
+          "Make reservation"
+        ]
+      },
+      {
+        "value" : "no_of_people",
+        "expressions" : [
+          "People Size"
+        ]
+      },
+      {
+        "value" : "receipt"
+      },
+      {
+        "value" : "reservation_length"
+      },
+      {
+        "value" : "select_restaurant"
+      },
+      {
+        "value" : "select_service"
+      },
+      {
+        "value" : "special_request"
+      },
+      {
+        "value" : "thanks_greeting"
+      },
+      {
+        "value" : "welcome_greeting"
+      }
+    ],
+    "doc" : "User-defined entity",
+    "builtin" : false
+  }
+}

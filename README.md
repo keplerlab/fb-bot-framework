@@ -32,8 +32,9 @@
     - [Handle Application Flow](#handle-application-flow)
   - [Template Manager](#template-manager)
   - [Database Helper](#database-helper)
+    - [Read data from Firebase](#read-data-from-firebase)
+    - [Update data to Firebase](#update-data-to-firebase)
   - [User Session](#user-session)
-  - [Firebase](#firebase)
   - [WIT Default Intents](#wit-default-intents)
   - [Firebase Default Database](#firebase-default-database)
 - [UnSubscribe Your Chatbot](#unsubscribe-your-chatbot)
@@ -380,20 +381,93 @@ getTmplOptionList(data);
 ``` 
 
 ### Database Helper
+Database helper is responsible to create a connection to Firebase. It also fetches all the initial pre-trained data list and save user chat history to realtime Firebase database. This helper always look for `isFirebaseDB` key in configuration file, which decide whether the data needs to be save or not. 
 
+#### Read data from Firebase 
+
+This is how we fetch the data from firebase database. First create an intance from super class and then create a reference to the table. 
+
+```shell
+    var db = firebaseAdmin.database(); //Initialize database object 
+    var data = db.ref(); //get database reference 
+    console.log(data);
+```
+
+#### Update data to Firebase
+
+This is how we first look for the object key which we want to update, if this object key doesn't exist then it's get added to list. `.update()` method will update the table or selected object key data, whatever data you passed to it.    
+
+```shell 
+    var newPostKey = firebaseAdmin.database().ref().child('chatData').push().key; //get children object from table
+    var newChat = {};
+
+    newChat['/chatData/' + newPostKey] = chatData; //set data
+    firebaseAdmin.database().ref().update(newChat); //update table
+```
 
 ### User Session
 
+User session object is designed to manage user session and retain user action history for post processing. A server can have list of active user sessions.   
 
-### Firebase
-
+```shell
+    function User(userId, profile) {
+        this.userId = userId; //user if provided by Facebook
+        this.status = false;
+        this.profile = profile; //store user first name, profile image and other personal information requested by you 
+        this.lastQuestion = {}; //last question that system had asked 
+        this.chatData = {}, //save user chat history 
+        this.lastQuestionKey = ''; //store key of last selected question
+        this.selectedRestaurantName = ''; //store last selected restaurant name by user   
+        this.selectedRestaurantImage = ''; //store last selected restaurant image by user
+        this.selectedDay = ''; //store last selected day to visit restaurant by user
+    }
+```
 
 ### WIT Default Intents
 
+This framework have a default NLP engine data, in our case it's `WIT` data. Which contains all the `entities`, which further contains `intents`, `actions`,`expressions` and their `stories`. For ex:- 
+
+```shell
+Story - Intent
+What is Sapient? - sapient
+SapientNitro - sapient 
+Sapient Razorfish - sapient 
+```
+
+Note : Every NLP engine have their own algorithm or ways to train your system. In case of `WIT`, they rely on story based mechanism. For more information checkout https://wit.ai/       
 
 ### Firebase Default Database
 
+This framework provides one dummy JSON object, which can be used to quickly import it to your database or Firebase database. This object contains mainly two mandatory objects.
 
+* `questions` - List of set of questions to ask to end user.  
+* `chatData` - User chat history to save to database. 
+
+```shell
+{
+	"questions": [{
+		"response": "Hi <user>, I am Restaurant Bot. How can I help you today?",
+		"key": "welcome_greeting",
+		"tType": "text",
+		"options": []
+	}, {
+		"response": "Please select an option to start with.",
+		"key": "select_menu",
+		"tType": "optionList",
+		"options": [{
+			"id": "see_menu",
+			"name": "See Menu"
+		}, {
+			"id": "make_reservation",
+			"name": "Make a Reservation"
+		}, {
+			"id": "order_takeout",
+			"name": "Order Takeout"
+		}]
+	}],
+	"chatData": []
+}
+```
 
 ## UnSubscribe Your Chatbot
 To unsubscribe your page immediately, just go to the application page and unsubsribe your page under messenger tab and webhook section.   

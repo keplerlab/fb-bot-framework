@@ -1,0 +1,166 @@
+{
+  "data" : [
+    {
+      "text" : "Cancel",
+      "entities" : [
+        {
+          "entity" : "intent",
+          "value" : "\"cancel_greeting\""
+        }
+      ]
+    },
+    {
+      "text" : "Comments",
+      "entities" : [
+        {
+          "entity" : "intent",
+          "value" : "\"comments\""
+        }
+      ]
+    },
+    {
+      "text" : "Confirmation",
+      "entities" : [
+        {
+          "entity" : "intent",
+          "value" : "\"confirmation\""
+        }
+      ]
+    },
+    {
+      "text" : "Day and Time",
+      "entities" : [
+        {
+          "entity" : "intent",
+          "value" : "\"day_and_time\""
+        }
+      ]
+    },
+    {
+      "text" : "Feedback",
+      "entities" : [
+        {
+          "entity" : "intent",
+          "value" : "\"feedback\""
+        }
+      ]
+    },
+    {
+      "text" : "Make a Reservation",
+      "entities" : [
+        {
+          "entity" : "intent",
+          "value" : "\"make_reservation\""
+        }
+      ]
+    },
+    {
+      "text" : "No of people",
+      "entities" : [
+        {
+          "entity" : "intent",
+          "value" : "\"no_of_people\""
+        }
+      ]
+    },
+    {
+      "text" : "Receipt",
+      "entities" : [
+        {
+          "entity" : "intent",
+          "value" : "\"receipt\""
+        }
+      ]
+    },
+    {
+      "text" : "Reservation Length",
+      "entities" : [
+        {
+          "entity" : "intent",
+          "value" : "\"reservation_length\""
+        }
+      ]
+    },
+    {
+      "text" : "Select Restaurant",
+      "entities" : [
+        {
+          "entity" : "intent",
+          "value" : "\"select_restaurant\""
+        }
+      ]
+    },
+    {
+      "text" : "Special Request",
+      "entities" : [
+        {
+          "entity" : "intent",
+          "value" : "\"special_request\""
+        }
+      ]
+    },
+    {
+      "text" : "Thanks",
+      "entities" : [
+        {
+          "entity" : "intent",
+          "value" : "\"thanks_greeting\""
+        }
+      ]
+    },
+    {
+      "text" : "hello",
+      "entities" : [
+        {
+          "entity" : "intent",
+          "value" : "\"welcome_greeting\""
+        }
+      ]
+    },
+    {
+      "text" : "hello ",
+      "entities" : [
+        {
+          "entity" : "intent",
+          "value" : "\"welcome_greeting\""
+        }
+      ]
+    },
+    {
+      "text" : "hello bot",
+      "entities" : [
+        {
+          "entity" : "intent",
+          "value" : "\"welcome_greeting\""
+        }
+      ]
+    },
+    {
+      "text" : "hi",
+      "entities" : [
+        {
+          "entity" : "intent",
+          "value" : "\"welcome_greeting\""
+        }
+      ]
+    },
+    {
+      "text" : "hi bot",
+      "entities" : [
+        {
+          "entity" : "intent",
+          "value" : "\"welcome_greeting\""
+        }
+      ]
+    },
+    {
+      "text" : "hola",
+      "entities" : [
+        {
+          "entity" : "intent",
+          "value" : "\"greetings\""
+        }
+      ]
+    }
+  ]
+}
