@@ -469,7 +469,7 @@ To unsubscribe your page immediately, just go to the application page and unsubs
 
 ## Known Issues
 
-We don't find any issues as of now, but we'll be glab in case anyone find any issue and update us via email `IndiaStudio-Kepler@sapient.com`
+We don't find any issues as of now, but we'll be glad in case anyone find any issue and update us via email `IndiaStudio-Kepler@sapient.com`
 
 ## Reaching Out
 
